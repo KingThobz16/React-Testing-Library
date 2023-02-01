@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { Greet } from "./greet";
 
+// You can either use the "test()" or "it()" method to create a test.
+// 
+
 test('Greet renders correctly', () => {
     // create a virtual dom of the greet component, against which we test our assertions
     // To create a virtual dom of our component we use the render method from react testing library

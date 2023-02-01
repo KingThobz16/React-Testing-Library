@@ -36,3 +36,6 @@ test.only('Greet renders with a name', () => {
 
 // test.only() - will run only this test on the file
 // test.skip() - will skip this test
+
+// fit() - to run only this test
+// xit() - to skip it test
