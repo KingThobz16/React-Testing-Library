@@ -22,13 +22,17 @@ test('Greet renders correctly', () => {
 
 // second requirement
 // it should render hellow followed by the name, if a name is passed in
-test('Greet renders with a name', () => {
-    // we render the component
+test.only('Greet renders with a name', () => {
+    // we render the component 
     // we pass in a named prop
     render(<Greet2 name="Thobela" />)
-    // Now we check if hello and prop are present on the virtual document
+    // Now we get hello and prop are on the virtual document
     const textElement = screen.getByText('Hello Thobela');
     // We use the expect methed from jest, to test our assertion
     // We expect text element to be in the virtual dom created by render above
     expect(textElement).toBeInTheDocument();
 });
+
+
+// test.only() - will run only this test on the file
+// test.skip() - will skip this test
