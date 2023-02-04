@@ -79,24 +79,11 @@ describe('Application', () => {
         expect(termsElement2).toBeInTheDocument();
      })
 
-// 
-// 
-// getByPlaceholdetText query examples 
-// 
-        // Will search for all elements with a placeholder attribute
-        // and find one that matches the given text
-        // const nameElement3 = screen.getByPlaceholderText("bio");
-        // expect(nameElement3).toBeInTheDocument();
 
-
-// 
-// 
-// getByText query examples
-// 
-//      
-        // getByText will search for all elements that have a text node
-        //  with textContent matching the given text
-        const paragraphElement = screen.getByText(/All fields are mandatory/)
-        expect(paragraphElement).toBeInTheDocument();
-
+    //  
+    // 
+    // getbydi
+    // 
+    // 
+ 
  })
