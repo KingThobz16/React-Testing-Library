@@ -26,14 +26,29 @@ describe('Skills', () => {
         expect(listItemElements).toHaveLength(skills.length);
     })
 
+    // To confirm the login button is the UI
     test('renders Login button', () => {
         // we render the component with the props
         render(<Skills skills={skills}/>)
-        // Find the button element using get by role
+        // Find the login button element using get by role
         const loginButton = screen.getByRole('button', {
             name: 'Login'
         })
         // Expect it to be in the document
         expect(loginButton).toBeInTheDocument();
+    })
+
+    // To confirm that the start learning button is NOT in the ui
+    test('Start Learning Button is not rendered', () => {
+        // we render the component with the props
+        render(<Skills skills={skills}/>)
+        // Find the start learning button element using get by role
+        // const loginButton = screen.getByRole('button', {
+        // when we want an element to not be present on the dom, we use queryby insteat of getby 
+        const loginButton = screen.queryByRole('button', {
+            name: 'Start learning'
+        })
+        // Expect it to NOT be in the document
+        expect(loginButton).not.toBeInTheDocument()
     })
 })
