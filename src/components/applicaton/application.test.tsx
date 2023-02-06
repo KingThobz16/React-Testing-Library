@@ -79,11 +79,5 @@ describe('Application', () => {
         expect(termsElement2).toBeInTheDocument();
      })
 
-
-    //  
-    // 
-    // getbydi
-    // 
-    // 
  
  })

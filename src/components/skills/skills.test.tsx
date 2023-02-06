@@ -25,4 +25,15 @@ describe('Skills', () => {
         // we expect the list elements, to have length of skills.length
         expect(listItemElements).toHaveLength(skills.length);
     })
+
+    test('renders Login button', () => {
+        // we render the component with the props
+        render(<Skills skills={skills}/>)
+        // Find the button element using get by role
+        const loginButton = screen.getByRole('button', {
+            name: 'Login'
+        })
+        // Expect it to be in the document
+        expect(loginButton).toBeInTheDocument();
+    })
 })
