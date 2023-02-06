@@ -51,4 +51,22 @@ describe('Skills', () => {
         // Expect it to NOT be in the document
         expect(loginButton).not.toBeInTheDocument()
     })
+
+    // To check if start learning button is eventually displayed with a setTimeout delay
+    test('Start Learning Button is eventually displayed', async () => {
+        // we render the component with the props
+        render(<Skills skills={skills}/>)
+        // For debuggin
+        screen.debug()
+        // Find the start learning button element using get by role
+        const loginButton = await screen.findByRole('button', {
+            name: 'Start learning'
+        }, {
+            timeout: 2000
+        })
+        // Expect it to NOT be in the document
+        expect(loginButton).toBeInTheDocument()
+    })
+
+
 })
