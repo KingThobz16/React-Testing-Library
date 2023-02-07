@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, logRoles } from "@testing-library/react";
 import { Skills } from "./skills";
 
 describe('Skills', () => {
@@ -55,9 +55,11 @@ describe('Skills', () => {
     // To check if start learning button is eventually displayed with a setTimeout delay
     test('Start Learning Button is eventually displayed', async () => {
         // we render the component with the props
-        render(<Skills skills={skills}/>)
+        const view = render(<Skills skills={skills}/>)
+        // To display a list of roles in the dom
+        logRoles(view.container)
         // For debuggin
-        screen.debug()
+        // screen.debug()
         // Find the start learning button element using get by role
         const loginButton = await screen.findByRole('button', {
             name: 'Start learning'
@@ -67,6 +69,6 @@ describe('Skills', () => {
         // Expect it to NOT be in the document
         expect(loginButton).toBeInTheDocument()
     })
-
+ 
 
 })
