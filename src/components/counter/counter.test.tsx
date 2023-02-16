@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import user from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 import { Counter } from "./counter";
 
 describe('Counter', () => {
@@ -38,14 +38,14 @@ describe('Counter', () => {
     // Test if the count is 1 after clicking once
     test('Renders a count of 1 after clicking the increment button', async () => {
         // create an instance of user-event
-        user.setup()
+        userEvent.setup()
 
         render(<Counter />)
         // We find the increment button
         const incrementButton = screen.getByRole('button', {
             name: 'Increment'
         });
-        await user.click(incrementButton)
+        await userEvent.click(incrementButton)
         // We find the count element
         const countElement = screen.getByRole('heading');
         // We expect the count element to text of 1 
@@ -55,7 +55,7 @@ describe('Counter', () => {
     // Test if the count is 2 after clicking twice
     test('Renders a count of 2 after clicking the increment button twice', async () => {
         // create an instance of user-event
-        user.setup()
+        userEvent.setup()
         // We render counter on the virtual dom
         render(<Counter />)
         // We find the increment button
@@ -63,7 +63,7 @@ describe('Counter', () => {
             name: 'Increment'
         });
         // We perform a click
-        await user.dblClick(incrementButton)
+        await userEvent.dblClick(incrementButton)
         // We find the count element
         const countElement = screen.getByRole('heading');
         // We expect the count element to text of 1 
@@ -80,13 +80,13 @@ describe('Counter', () => {
     */
     test('Renders a count of 10 after clicking the Set button', async () => {
         // create an instance of user-event
-        user.setup()
+        userEvent.setup()
         // We render counter on the virtual dom
         render(<Counter />)
         // We fine the input element
         const amountInput = screen.getByRole('spinbutton');
         // We simulate a user entering data
-        await user.type(amountInput, '10');
+        await userEvent.type(amountInput, '10');
         // expect the amount input to have a value of 10
         expect(amountInput).toHaveValue(10);
         // We find the Set button
@@ -94,7 +94,7 @@ describe('Counter', () => {
             name: 'Set'
         });
         // We simulate a user clicking button
-        await user.click(setButton)
+        await userEvent.click(setButton)
         // We fine the heading element
         const countElement = screen.getByRole('heading');
         // We expect the count element to text of 10 
@@ -103,7 +103,7 @@ describe('Counter', () => {
 
     // test is elements are focused on the right order, when pressing tab
     test('elements are focused in the right order', async () => {
-        user.setup()
+        userEvent.setup()
         render(<Counter/>)
         // We find all the elements
         const amountInput = screen.getByRole('spinbutton');
@@ -114,13 +114,13 @@ describe('Counter', () => {
             name: 'Increment'
         });
         // To simulate tab and expect incrementButton to have focus
-        await user.tab()
+        await userEvent.tab()
         expect(incrementButton).toHaveFocus()
         // To simulate tab and expect amountInput to have focus
-        await user.tab()
+        await userEvent.tab()
         expect(amountInput).toHaveFocus()
         // To simulate tab and expect setButton to have focus
-        await user.tab()
+        await userEvent.tab()
         expect(setButton).toHaveFocus()
     });
 })
